@@ -1,7 +1,9 @@
-"""cishe URL Configuration
+"""
+cishe URL Configuration.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
+
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -14,14 +16,24 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
 from django.http.response import JsonResponse
+from django.urls import path
 
-def home(request): 
+
+def home(request):
     result = {"msg": "ok"}
     return JsonResponse(result)
 
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', home),
+    path("admin/", admin.site.urls),
+    path("", home),
 ]
+
+
+def xxx(a: dict = {}) -> None:
+    for k, v in a.items():
+        print(k, v)
+
+
+xxx({})

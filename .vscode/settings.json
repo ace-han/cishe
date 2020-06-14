@@ -1,9 +1,16 @@
 {
-    "python.venvPath": "~/Library/Caches/pypoetry/virtualenvs/",
-    "python.jediEnabled": false,
-    "vsintellicode.python.completionsEnabled": true,
-    "python.formatting.provider": "black",
-    "editor.formatOnSave": false,
-    "python.analysis.memory.keepLibraryLocalVariables": true,
-    "python.analysis.memory.keepLibraryAst": true
+  "python.venvPath": "~/Library/Caches/pypoetry/virtualenvs/",
+  "python.jediEnabled": false,
+  "vsintellicode.python.completionsEnabled": true,
+  "python.formatting.provider": "black",
+  "editor.formatOnSave": false,
+  "python.analysis.memory.keepLibraryLocalVariables": true,
+  "python.analysis.memory.keepLibraryAst": true,
+  "python.testing.pytestArgs": [
+    "-v",
+    "--no-cov"
+  ],
+  "python.testing.unittestEnabled": false,
+  "python.testing.nosetestsEnabled": false,
+  "python.testing.pytestEnabled": true,
 }
