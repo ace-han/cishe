@@ -1,0 +1,9 @@
+{
+    "python.venvPath": "~/Library/Caches/pypoetry/virtualenvs/",
+    "python.jediEnabled": false,
+    "vsintellicode.python.completionsEnabled": true,
+    "python.formatting.provider": "black",
+    "editor.formatOnSave": false,
+    "python.analysis.memory.keepLibraryLocalVariables": true,
+    "python.analysis.memory.keepLibraryAst": true
+}
