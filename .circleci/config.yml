@@ -9,11 +9,17 @@ jobs:
     steps:
       - checkout
       - python/load-cache
-      - python/install-deps
+      - run: 
+          command: pip install -r requirements_dev.txt
       - python/save-cache
       - run:
           command: ./manage.py test
           name: Test
+      - store_test_results:
+          path: test-results
+      - store_artifacts:
+          path: test-results
+          destination: tr1
 
 workflows:
   main:
