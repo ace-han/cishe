@@ -17,6 +17,7 @@ django-memoize = "^2.3.1"
 pymysql = {version = "^0.9.3", extras = ["rsa"]}
 django-environ = "^0.4.5"
 
+
 [tool.poetry.dev-dependencies]
 # code formatter
 black = "^19.10b0"
@@ -39,6 +40,7 @@ pydocstyle = "^5.0.2"
 django-stubs = "^1.5.0"
 djangorestframework-stubs = "^1.2.0"
 mypy = "^0.770"
+codecov = "^2.1.7"
 
 [tool.black]
 target_version = ['py38']
