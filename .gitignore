@@ -130,4 +130,3 @@ dmypy.json
 
 # project specific
 db.sqlite3
-poetry.lock

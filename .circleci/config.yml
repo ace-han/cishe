@@ -1,24 +1,22 @@
 version: 2.1
 
 orbs:
-  python: circleci/python@0.3.0
+  poetry: thomasborgen/python-poetry-orb@1.0.0
 
 jobs:
-  build-and-test:
-    executor: python/default
+  test:
+    docker:
+      - image: circleci/python:latest
     steps:
       - checkout
-      - python/load-cache:
-          dependency-file: requirements_dev.txt
-      - python/install-deps:
-          dependency-file: requirements_dev.txt
-      - python/save-cache:
-          dependency-file: requirements_dev.txt
-      - run:
-          command: tox
-          name: Test
+      - poetry/install:
+          args: '--no-root'
+      - poetry/export:
+          args: '--dev -f requirements.txt -o requirements.txt'
+      - poetry/shell:
+          args: tox
 
 workflows:
   main:
     jobs:
-      - build-and-test
+      - test
