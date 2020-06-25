@@ -435,10 +435,10 @@ description = "A Python library to read/write Excel 2010 xlsx/xlsm files"
 name = "openpyxl"
 optional = false
 python-versions = ">=3.6,"
-version = "3.0.3"
+version = "3.0.4"
 
 [package.dependencies]
-et_xmlfile = "*"
+et-xmlfile = "*"
 jdcal = "*"
 
 [[package]]
@@ -865,7 +865,7 @@ python-versions = "*"
 version = "0.2.4"
 
 [metadata]
-content-hash = "3769c743d8af1b460007fc6a26f04d4dfcf99c0d3fa27d1b6c0d024c81502de5"
+content-hash = "374a9790e3dcb6d69c123cb975df0e434e9f8480314dfa0abda70fe671a71913"
 python-versions = "^3.8"
 
 [metadata.files]
@@ -1111,7 +1111,7 @@ nodeenv = [
     {file = "nodeenv-1.4.0-py2.py3-none-any.whl", hash = "sha256:4b0b77afa3ba9b54f4b6396e60b0c83f59eaeb2d63dc3cc7a70f7f4af96c82bc"},
 ]
 openpyxl = [
-    {file = "openpyxl-3.0.3.tar.gz", hash = "sha256:547a9fc6aafcf44abe358b89ed4438d077e9d92e4f182c87e2dc294186dc4b64"},
+    {file = "openpyxl-3.0.4-py2.py3-none-any.whl", hash = "sha256:6e62f058d19b09b95d20ebfbfb04857ad08d0833190516c1660675f699c6186f"},
 ]
 packaging = [
     {file = "packaging-20.4-py2.py3-none-any.whl", hash = "sha256:998416ba6962ae7fbd6596850b80e17859a5753ba17c32284f67bfff33784181"},
