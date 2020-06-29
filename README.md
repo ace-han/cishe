@@ -3,8 +3,8 @@
 **Client Information System for HelloEdu.**
 
 <div>
-  <a href="https://circleci.com/gh/ace-han/cishe">
-    <img alt="CircleCI" src="https://img.shields.io/circleci/build/gh/ace-han/cishe?label=circleci&logo=circleci" alt="Build status">
+  <a href="https://circleci.com/gh/ace-han/cishe/actions?query=workflow%3A&quotCI&quot">
+    <img alt="CircleCI" src="https://img.shields.io/github/workflow/status/ace-han/cishe/ci/master?logo=github" alt="Build status">
   </a>
   <a href="https://codecov.io/gh/ace-han/cishe">
     <img alt="Codecov" src="https://img.shields.io/codecov/c/gh/ace-han/cishe?logo=codecov" alt="Coverage">
