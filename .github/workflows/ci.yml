@@ -58,5 +58,5 @@ jobs:
       - uses: actions/upload-artifact@v1
         with:
           name: pytest-results
-          path: junit/test-results.xml
+          path: ./coverage.xml
         if: ${{ always() }}
