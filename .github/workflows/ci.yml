@@ -8,8 +8,10 @@ jobs:
     runs-on: ubuntu-latest
 
     services:
-      mariadb:
+      mysql:
         image: mysql:latest
+        ports:
+          - 3306
         env:
           MYSQL_USER: cishe
           MYSQL_PASSWORD: cishe
@@ -49,12 +51,6 @@ jobs:
       - name: Install Dependencies
         run: poetry install --no-root
         if: steps.cache.outputs.cache-hit != 'true'
-
-      - name: Verify Mysql connection
-        run: |
-          while ! mysqladmin ping -h"127.0.0.1" --silent; do
-            sleep 1
-          done
 
       - name: Test with pytest
         env:
