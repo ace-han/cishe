@@ -9,24 +9,31 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
+import environ
 
-import os
 
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
+# with `env_file is not None` `os.environ._data.PWD` is BASE_DIR
+env.read_env(env.str("ENV_PATH", default=".env"))
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# environ.Path()() is the folder where `os.environ._data.PWD` is
+BASE_DIR = environ.Path()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "bvj34my380xqa%5s&3z4%+jzn3xbx4ioschsma2afe1xqs8n$)"
+SECRET_KEY = env.str("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool("DEBUG")
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=[])
 
 
 # Application definition
@@ -71,17 +78,32 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "cishe.wsgi.application"
 
+# monkey patch for pymysql as db level
+try:
+    import pymysql
+
+    pymysql.version_info = (1, 4, 6, "final", 0)  # change mysqlclient version
+    pymysql.install_as_MySQLdb()
+except ImportError:
+    pass
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
-    }
+    # BASE_DIR('db.sqlite3') => /path/to/BASE_DIR/db.sqlite3
+    # we need `four slashes` as sqlite scheme to work
+    # so `three slashes` ahead
+    "default": env.db_url(
+        "DATABASE_URL", default="sqlite:///" + BASE_DIR("db.sqlite3")
+    ),
 }
 
+CACHES = {
+    "default": env.cache_url(
+        "CACHE_URL", default="locmemcache://snow-flake?timeout=300&max_entries=1000"
+    )
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators

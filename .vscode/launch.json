@@ -18,6 +18,22 @@
       "justMyCode": false
     },
     {
+      "name": "Python: Django shell github",
+      "type": "python",
+      "request": "launch",
+      "env": {
+        "ENV_PATH": ".env.github",
+        "__comment__": "because the debugging django invoke twice internally, it won't work plz stick to .env instead"
+      },
+      "program": "${workspaceFolder}/manage.py",
+      "args": [
+        "shell"
+      ],
+      "subProcess": true,
+      "django": true,
+      "justMyCode": false
+    },
+    {
       "name": "Python: Django migrate",
       "type": "python",
       "request": "launch",
