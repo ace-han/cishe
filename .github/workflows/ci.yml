@@ -7,6 +7,16 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    services:
+      mariadb:
+        image: mysql:latest
+        env:
+          MYSQL_USER: cishe
+          MYSQL_PASSWORD: cishe
+          MYSQL_DATABASE: cishe
+          MYSQL_ROOT_PASSWORD: adminpwd
+        options: --health-cmd="mysqladmin ping" --health-interval=5s --health-timeout=2s --health-retries=3
+
     steps:
       - uses: actions/checkout@v2
         with:
@@ -39,6 +49,12 @@ jobs:
       - name: Install Dependencies
         run: poetry install --no-root
         if: steps.cache.outputs.cache-hit != 'true'
+
+      - name: Verify Mysql connection
+        run: |
+          while ! mysqladmin ping -h"127.0.0.1" --silent; do
+            sleep 1
+          done
 
       - name: Test with pytest
         env:
