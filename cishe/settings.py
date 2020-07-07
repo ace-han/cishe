@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "phonenumber_field",
     "cishe.account",
 ]
 
@@ -138,3 +139,15 @@ USE_TZ = True
 STATIC_URL = "/static/"
 
 TEST_RUNNER = "cishe.tests.runner.PytestTestRunner"
+
+# refer to
+#   https://medium.com/frochu/libphonenumber-example-app-f60680faa599
+# E164 : +886920123456
+# INTERNATIONAL : +886 920 123 456
+# NATIONAL : 0920 123 456
+# RFC3966 : 920 123 456
+
+# using `E164` will be more db efficient
+PHONENUMBER_DB_FORMAT = "E164"
+# https://46elks.com/kb/country-codes
+PHONENUMBER_DEFAULT_REGION = "CN"

@@ -1,6 +1,5 @@
 {
   "python.venvPath": "~/Library/Caches/pypoetry/virtualenvs/",
-  "python.jediEnabled": false,
   "vsintellicode.python.completionsEnabled": true,
   "python.formatting.provider": "black",
   "editor.formatOnSave": false,
@@ -12,6 +11,6 @@
   ],
   "python.testing.unittestEnabled": false,
   "python.testing.nosetestsEnabled": false,
-"python.testing.pytestEnabled": true,
-"python.languageServer": "Microsoft",
+  "python.testing.pytestEnabled": true,
+  "python.languageServer": "Microsoft"
 }

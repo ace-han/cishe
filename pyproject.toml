@@ -16,6 +16,7 @@ pyyaml = "^5.3.1"
 django-memoize = "^2.3.1"
 pymysql = {version = "^0.9.3", extras = ["rsa"]}
 django-environ = "^0.4.5"
+django-phonenumber-field = "^4.0.0"
 
 
 [tool.poetry.dev-dependencies]
@@ -63,7 +64,7 @@ exclude = '''
 
 [tool.isort]
 known_first_party = ''
-known_third_party = ["django", "environ", "pytest"]
+known_third_party = ["django", "environ", "phonenumber_field", "pytest"]
 multi_line_output = 3
 lines_after_imports = 2
 force_grid_wrap = 0
