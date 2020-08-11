@@ -54,7 +54,7 @@
       "program": "${workspaceFolder}/manage.py",
       "args": [
         "runserver",
-        "0.0.0.0:8090"
+        "0.0.0.0:9528"
       ],
       "subProcess": true,
       "django": true,
