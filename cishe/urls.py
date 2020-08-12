@@ -17,7 +17,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.http.response import JsonResponse
-from django.urls import path
+from django.urls import include, path
+
+from cishe.api import urls as api_urls
 
 
 def home(request):
@@ -27,13 +29,6 @@ def home(request):
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("api/", include((api_urls, "api"), namespace="api")),
     path("", home),
 ]
-
-
-def xxx(a: dict = {}) -> None:
-    for k, v in a.items():
-        print(k, v)
-
-
-xxx({})
