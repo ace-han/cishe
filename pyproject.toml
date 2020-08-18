@@ -16,7 +16,7 @@ pyyaml = "^5.3.1"
 django-memoize = "^2.3.1"
 pymysql = {version = "^0.10.0", extras = ["rsa"]}
 django-environ = "^0.4.5"
-django-phonenumber-field = "^4.0.0"
+django-phonenumber-field = "^5.0.0"
 djangorestframework-simplejwt = {git = "https://github.com/AtuzSolution/django-rest-framework-simplejwt", rev = "jwt_cookie"}
 
 
