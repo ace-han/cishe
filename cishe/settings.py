@@ -191,9 +191,8 @@ SIMPLE_JWT = {
     "SLIDING_TOKEN_REFRESH_EXP_CLAIM": "refresh_exp",
     "SLIDING_TOKEN_LIFETIME": timedelta(minutes=5),
     "SLIDING_TOKEN_REFRESH_LIFETIME": timedelta(days=1),
-
     # Cookie name. Enables cookies if value is set.
-    'AUTH_COOKIE': 'Authorization',
+    "AUTH_COOKIE": "Authorization",
     # below are from django settings
     # A string like "example.com", or None for standard domain cookie.
     # 'AUTH_COOKIE_DOMAIN': settings.CSRF_COOKIE_DOMAIN,
@@ -203,5 +202,6 @@ SIMPLE_JWT = {
     # 'AUTH_COOKIE_PATH': settings.CSRF_COOKIE_PATH,
     # Whether to set the flag restricting cookie leaks on cross-site requests.
     # This can be 'Lax', 'Strict', or None to disable the flag.
-    'AUTH_COOKIE_SAMESITE': 'Lax',
+    "AUTH_COOKIE_SAMESITE": "Lax",
+    "AUTHENTICATED_COOKIE_KEY": "Authenticated",
 }
