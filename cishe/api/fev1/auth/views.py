@@ -34,7 +34,7 @@ class TokenObtainPairView(OriginalTokenObtainPairView):
         # `access_token` cookie expires as its encoded content indicates within
         # before cookie expiration !!!
         resp.set_cookie(
-            settings.SIMPLE_JWT["AUTHENTICATED_COOKIE_KEY"], "true", **cookie_data
+            settings.SIMPLE_JWT["LOGGED_IN_COOKIE_KEY"], "true", **cookie_data
         )
 
         # empty the content
