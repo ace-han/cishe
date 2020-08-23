@@ -328,6 +328,14 @@ typing-extensions = "*"
 
 [[package]]
 category = "main"
+description = "Flexible, dynamic fields and nested resources for Django REST Framework serializers."
+name = "drf-flex-fields"
+optional = false
+python-versions = "*"
+version = "0.8.5"
+
+[[package]]
+category = "main"
 description = "An implementation of lxml.xmlfile for the standard library"
 name = "et-xmlfile"
 optional = false
@@ -932,7 +940,7 @@ docs = ["proselint (>=0.10.2)", "sphinx (>=3)", "sphinx-argparse (>=0.2.5)", "sp
 testing = ["coverage (>=5)", "coverage-enable-subprocess (>=1)", "flaky (>=3)", "pytest (>=4)", "pytest-env (>=0.6.2)", "pytest-freezegun (>=0.4.1)", "pytest-mock (>=2)", "pytest-randomly (>=1)", "pytest-timeout (>=1)", "pytest-xdist (>=1.31.0)", "packaging (>=20.0)", "xonsh (>=0.9.16)"]
 
 [metadata]
-content-hash = "000f13e275bf361197d70ccbb8de05b79a319be59b0845495289da202e09a142"
+content-hash = "981dca3dfdf02020e11c332440e03ae9fce3071f5648d23ffb94fb30462da176"
 python-versions = "3.8.*"
 
 [metadata.files]
@@ -1119,6 +1127,9 @@ djangorestframework-simplejwt = []
 djangorestframework-stubs = [
     {file = "djangorestframework-stubs-1.2.0.tar.gz", hash = "sha256:cd98afa2a7a718689c8aafe162120074976c996f755b0c03d106b6c6c73b95f7"},
     {file = "djangorestframework_stubs-1.2.0-py3-none-any.whl", hash = "sha256:5df991dcdf28b2b761645282dfcae53f41d58200291ff7d5c0d028925fd9f215"},
+]
+drf-flex-fields = [
+    {file = "drf-flex-fields-0.8.5.tar.gz", hash = "sha256:04b11ad443d819717041afd29ea4c962592cbcc780fe975be4ed1a0ab617b402"},
 ]
 et-xmlfile = [
     {file = "et_xmlfile-1.0.1.tar.gz", hash = "sha256:614d9722d572f6246302c4491846d2c393c199cfa4edc9af593437691683335b"},
