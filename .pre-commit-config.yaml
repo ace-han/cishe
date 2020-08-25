@@ -28,16 +28,16 @@ repos:
     - id: isort
       additional_dependencies:
         - toml
-
-  - repo: local
-    hooks:
-    - id: mypy
-      name: mypy
-      language: system
-      # for gui tool to work, we'd better make sure POETRY_SHELL exposed
-      # MacOS, $ `open -a /Applications/Sourcetree.app`
-      # 1. copy all the dependencies to `additional_dependencies`
-      # 2. expose `poetry` to PATH and use `language: system`
-      entry: poetry run mypy
-      types: [python]
-      exclude: tests/
+  # disabled for we are not using typing in this project
+  # - repo: local
+  #   hooks:
+  #   - id: mypy
+  #     name: mypy
+  #     language: system
+  #     # for gui tool to work, we'd better make sure POETRY_SHELL exposed
+  #     # MacOS, $ `open -a /Applications/Sourcetree.app`
+  #     # 1. copy all the dependencies to `additional_dependencies`
+  #     # 2. expose `poetry` to PATH and use `language: system`
+  #     entry: poetry run mypy
+  #     types: [python]
+  #     exclude: tests/
