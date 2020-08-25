@@ -1,4 +1,3 @@
-from rest_framework import response
 from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -10,7 +9,7 @@ from cishe.account.serializers import UserGroupSerializer, UserSerializer
 
 
 class UserViewSet(ModelViewSet):
-    queryset = UserModel.objects.all()
+    queryset = UserModel.objects.prefetch_related("groups")
     serializer_class = UserSerializer
     permission_classes = (IsAuthenticated | IsSuperUser,)
 
@@ -18,11 +17,13 @@ class UserViewSet(ModelViewSet):
     def user_info(self, request, pk=None):
         # may go with groups
         obj = self.get_object()
-        serializer = UserGroupSerializer(obj)
+        context = self.get_serializer_context()
+        serializer = UserGroupSerializer(obj, context=context)
         return Response(serializer.data)
 
     @action(detail=False, methods=("get",), url_path="current-user-info")
     def current_user_info(self, request):
         # may go with groups
-        serializer = UserGroupSerializer(request.user)
+        context = self.get_serializer_context()
+        serializer = UserGroupSerializer(request.user, context=context)
         return Response(serializer.data)
