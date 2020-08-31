@@ -1,7 +1,9 @@
 from django.conf import settings
 from rest_framework import status
+from rest_framework.decorators import api_view
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+from rest_framework.status import HTTP_401_UNAUTHORIZED, HTTP_403_FORBIDDEN
 from rest_framework.views import APIView
 from rest_framework_simplejwt.views import (
     TokenCookieDeleteView as OriginalTokenCookieDeleteView,
@@ -58,3 +60,30 @@ class TokenRefreshView(OriginalTokenRefreshView):
 
 class TokenCookieDeleteView(OriginalTokenCookieDeleteView):
     token_refresh_view_name = "api:fev1:auth:token_refresh"
+
+
+@api_view(["GET", "POST"])
+def token_403(request):
+    return Response(
+        {
+            "detail": "Given token not valid for any token type",
+            "code": "token_not_valid",
+        },
+        status=HTTP_403_FORBIDDEN,
+    )
+
+
+@api_view(["GET", "POST"])
+def unauthorized_403(request):
+    return Response(
+        {"detail": "You do not have permission to perform this action."},
+        status=HTTP_403_FORBIDDEN,
+    )
+
+
+@api_view(["GET", "POST"])
+def token_401(request):
+    return Response(
+        {"detail": "Token is invalid or expired.", "code": "token_not_valid"},
+        status=HTTP_401_UNAUTHORIZED,
+    )
