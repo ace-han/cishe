@@ -13,3 +13,18 @@
     <img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Code style: black">
   </a>
 </div>
+
+# Database setup
+
+```shell
+
+CREATE USER `cishe`@`localhost` IDENTIFIED BY 'cishe';
+# for regular db use
+CREATE DATABASE `cishe` CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+GRANT ALL ON `cishe`.* TO `cishe`@`localhost`;
+# for test db use
+CREATE DATABASE `test_cishe` CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+GRANT ALL ON `test_cishe`.* TO `cishe`@`localhost`;
+
+FLUSH PRIVILEGES;
+```

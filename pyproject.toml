@@ -26,12 +26,13 @@ drf-flex-fields = "^0.8.5"
 black = "^19.10b0"
 ptvsd = "^4.3.2"
 pytest-django = "^3.9.0"
+pytest-django-queries = "^1.1.0"
 pytest-mock = "^3.2.0"
 pytest-xdist = "^2.0.0"
 tox = "^3.19.0"
 pytest-cov = "^2.10.1"
 pytest-html = "^2.1.1"
-# pytest-factoryboy = "^2.0.3"
+pytest-factoryboy = "^2.0.3"
 
 # code checker
 flake8 = "^3.8.3"
@@ -66,7 +67,7 @@ exclude = '''
 
 [tool.isort]
 known_first_party = ''
-known_third_party = ["django", "environ", "phonenumber_field", "rest_flex_fields", "rest_framework", "rest_framework_simplejwt"]
+known_third_party = ["django", "environ", "factory", "phonenumber_field", "pytest", "pytest_factoryboy", "rest_flex_fields", "rest_framework", "rest_framework_simplejwt"]
 multi_line_output = 3
 lines_after_imports = 2
 force_grid_wrap = 0
