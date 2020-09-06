@@ -15,7 +15,7 @@ jobs:
         env:
           MYSQL_USER: cishe
           MYSQL_PASSWORD: cishe
-          MYSQL_DATABASE: cishe
+          MYSQL_DATABASE: test_cishe
           MYSQL_ROOT_PASSWORD: adminpwd
         options: --health-cmd="mysqladmin ping" --health-interval=5s --health-timeout=2s --health-retries=3
 
