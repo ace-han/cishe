@@ -128,5 +128,8 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# pytest-django-queries
+.pytest-queries
+
 # project specific
 db.sqlite3

@@ -59,6 +59,6 @@
       "subProcess": true,
       "django": true,
       "justMyCode": false
-    }
+    },
   ]
 }
