@@ -6,7 +6,7 @@ from cishe.api.fev1.auth.views import HelloView, TokenRefreshView
 
 
 @pytest.mark.django_db
-@pytest.mark.count_queries
+@pytest.mark.count_queries(autouse=False)
 def test_expired_or_invalid_access_token(rf):
     access_cookie_name = api_settings.AUTH_COOKIE
     request = rf.get("/api/fev1/hello/")
@@ -18,7 +18,7 @@ def test_expired_or_invalid_access_token(rf):
 
 
 @pytest.mark.django_db
-@pytest.mark.count_queries
+@pytest.mark.count_queries(autouse=False)
 def test_unauthorized_access_token(rf):
     request = rf.get("/api/fev1/hello/")
     view = HelloView.as_view()
@@ -28,7 +28,7 @@ def test_unauthorized_access_token(rf):
 
 
 @pytest.mark.django_db
-@pytest.mark.count_queries
+@pytest.mark.count_queries(autouse=False)
 def test_invalid_or_expired_refresh_token(admin_user, rf):
     refresh_token_view = TokenRefreshView.as_view()
     refresh_cookie_name = TokenRefreshView.token_refresh_cookie_name
@@ -42,7 +42,7 @@ def test_invalid_or_expired_refresh_token(admin_user, rf):
 
 
 @pytest.mark.django_db
-@pytest.mark.count_queries
+@pytest.mark.count_queries(autouse=False)
 def test_blacklisted_refresh_token(admin_user, rf):
     refresh_token_view = TokenRefreshView.as_view()
     refresh_cookie_name = TokenRefreshView.token_refresh_cookie_name
