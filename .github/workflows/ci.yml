@@ -11,7 +11,7 @@ jobs:
       mysql:
         image: mysql:latest
         ports:
-          - 3306
+          - 13306:3306
         env:
           MYSQL_USER: cishe
           MYSQL_PASSWORD: cishe
