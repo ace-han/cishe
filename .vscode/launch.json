@@ -60,5 +60,12 @@
       "django": true,
       "justMyCode": false
     },
+    {
+      "name": "Pytest",
+      "type": "python",
+      "request": "test",
+      "env": {},
+      "justMyCode": false,
+  },
   ]
 }
