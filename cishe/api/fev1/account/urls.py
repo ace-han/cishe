@@ -1,7 +1,7 @@
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 
-from cishe.account.views import UserViewSet
+from cishe.api.fev1.account.views import UserViewSet
 
 
 router = DefaultRouter()

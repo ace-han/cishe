@@ -4,8 +4,11 @@ from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 
 from cishe.account.models import UserModel
-from cishe.account.permissions import IsSuperUser
-from cishe.account.serializers import UserGroupSerializer, UserSerializer
+from cishe.api.fev1.account.permissions import IsSuperUser
+from cishe.api.fev1.account.serializers import (
+    UserGroupSerializer,
+    UserSerializer,
+)
 
 
 class UserViewSet(ModelViewSet):
