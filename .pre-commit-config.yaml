@@ -2,36 +2,40 @@ repos:
   - repo: https://github.com/ambv/black
     rev: 20.8b1
     hooks:
-    - id: black
-      language_version: python3.8
+      - id: black
+        language_version: python3.8
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v3.2.0
     hooks:
-    - id: trailing-whitespace
-      exclude: ^templates/templated_email/compiled/
-    - id: end-of-file-fixer
-      exclude: ^templates/templated_email/compiled/
-    - id: flake8
-      additional_dependencies:
-        - flake8-docstrings
+      - id: trailing-whitespace
+        exclude: ^templates/templated_email/compiled/
+      - id: end-of-file-fixer
+        exclude: ^templates/templated_email/compiled/
+
+  - repo: https://gitlab.com/pycqa/flake8
+    rev: 3.8.3
+    hooks:
+      - id: flake8
+        additional_dependencies:
+          - flake8-docstrings
 
   - repo: https://github.com/timothycrosley/isort
     rev: 5.5.1  # pick the isort version you'd like to use from https://github.com/timothycrosley/isort/releases
     hooks:
-    - id: isort
-      additional_dependencies:
-        - toml
+      - id: isort
+        additional_dependencies:
+          - toml
   # disabled for we are not using typing in this project
   # - repo: local
   #   hooks:
-  #   - id: mypy
-  #     name: mypy
-  #     language: system
-  #     # for gui tool to work, we'd better make sure POETRY_SHELL exposed
-  #     # MacOS, $ `open -a /Applications/Sourcetree.app`
-  #     # 1. copy all the dependencies to `additional_dependencies`
-  #     # 2. expose `poetry` to PATH and use `language: system`
-  #     entry: poetry run mypy
-  #     types: [python]
-  #     exclude: tests/
+  #     - id: mypy
+  #       name: mypy
+  #       language: system
+  #       # for gui tool to work, we'd better make sure POETRY_SHELL exposed
+  #       # MacOS, $ `open -a /Applications/Sourcetree.app`
+  #       # 1. copy all the dependencies to `additional_dependencies`
+  #       # 2. expose `poetry` to PATH and use `language: system`
+  #       entry: poetry run mypy
+  #       types: [python]
+  #       exclude: tests/
