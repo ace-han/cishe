@@ -237,6 +237,10 @@ version = "5.0.0"
 [package.dependencies]
 Django = ">=2.2"
 
+[package.dependencies.phonenumbers]
+optional = true
+version = ">=7.0.2"
+
 [package.extras]
 phonenumbers = ["phonenumbers (>=7.0.2)"]
 phonenumberslite = ["phonenumberslite (>=7.0.2)"]
@@ -321,7 +325,7 @@ description = "Flexible, dynamic fields and nested resources for Django REST Fra
 name = "drf-flex-fields"
 optional = false
 python-versions = "*"
-version = "0.8.5"
+version = "0.8.6"
 
 [[package]]
 category = "main"
@@ -411,7 +415,7 @@ description = "File identification library for Python"
 name = "identify"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,>=2.7"
-version = "1.5.0"
+version = "1.5.2"
 
 [package.extras]
 license = ["editdistance"]
@@ -446,7 +450,7 @@ description = "A Python utility / library to sort Python imports."
 name = "isort"
 optional = false
 python-versions = ">=3.6,<4.0"
-version = "5.5.1"
+version = "5.5.2"
 
 [package.extras]
 colors = ["colorama (>=0.4.3,<0.5.0)"]
@@ -564,6 +568,14 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 version = "0.8.0"
 
 [[package]]
+category = "main"
+description = "Python version of Google's common library for parsing, formatting, storing and validating international phone numbers."
+name = "phonenumbers"
+optional = false
+python-versions = "*"
+version = "8.12.9"
+
+[[package]]
 category = "dev"
 description = "plugin and hook calling mechanisms for python"
 name = "pluggy"
@@ -660,7 +672,7 @@ description = "Pure Python MySQL Driver"
 name = "pymysql"
 optional = false
 python-versions = "*"
-version = "0.10.0"
+version = "0.10.1"
 
 [package.dependencies]
 [package.dependencies.cryptography]
@@ -685,7 +697,7 @@ description = "pytest: simple powerful testing with Python"
 name = "pytest"
 optional = false
 python-versions = ">=3.5"
-version = "6.0.1"
+version = "6.0.2"
 
 [package.dependencies]
 atomicwrites = ">=1.0"
@@ -1007,8 +1019,7 @@ docs = ["proselint (>=0.10.2)", "sphinx (>=3)", "sphinx-argparse (>=0.2.5)", "sp
 testing = ["coverage (>=5)", "coverage-enable-subprocess (>=1)", "flaky (>=3)", "pytest (>=4)", "pytest-env (>=0.6.2)", "pytest-freezegun (>=0.4.1)", "pytest-mock (>=2)", "pytest-randomly (>=1)", "pytest-timeout (>=1)", "pytest-xdist (>=1.31.0)", "packaging (>=20.0)", "xonsh (>=0.9.16)"]
 
 [metadata]
-content-hash = "ac9bf9f80b84015dcb1c9ec2b06b0c059fb3dbe9c48037b22954594ff46fb8f8"
-lock-version = "1.0"
+content-hash = "8957383a54317c80fbc91584b5dd3e94ed482b42f3561149c4906a36647ca58f"
 python-versions = "3.8.*"
 
 [metadata.files]
@@ -1196,7 +1207,7 @@ djangorestframework-stubs = [
     {file = "djangorestframework_stubs-1.2.0-py3-none-any.whl", hash = "sha256:5df991dcdf28b2b761645282dfcae53f41d58200291ff7d5c0d028925fd9f215"},
 ]
 drf-flex-fields = [
-    {file = "drf-flex-fields-0.8.5.tar.gz", hash = "sha256:04b11ad443d819717041afd29ea4c962592cbcc780fe975be4ed1a0ab617b402"},
+    {file = "drf-flex-fields-0.8.6.tar.gz", hash = "sha256:13cd1e4371d0ca9580b8e71282b6cabd7a4e4a57e10298321b312c300eabf2b7"},
 ]
 et-xmlfile = [
     {file = "et_xmlfile-1.0.1.tar.gz", hash = "sha256:614d9722d572f6246302c4491846d2c393c199cfa4edc9af593437691683335b"},
@@ -1225,8 +1236,8 @@ flake8-docstrings = [
     {file = "flake8_docstrings-1.5.0-py2.py3-none-any.whl", hash = "sha256:a256ba91bc52307bef1de59e2a009c3cf61c3d0952dbe035d6ff7208940c2edc"},
 ]
 identify = [
-    {file = "identify-1.5.0-py2.py3-none-any.whl", hash = "sha256:0868312cb7402b48cf44fe3f568259f804ef4e983c143d11bf7a51ca311ebc34"},
-    {file = "identify-1.5.0.tar.gz", hash = "sha256:009f92ba753c467a99f6fd3eb395412cbc34077dd5a64313b62ba04297f2ab8e"},
+    {file = "identify-1.5.2-py2.py3-none-any.whl", hash = "sha256:e5cc8ba10ca658c278f841813c5f1556804141c93f82a7e620a938528a0c3f32"},
+    {file = "identify-1.5.2.tar.gz", hash = "sha256:56e70094705056ac75e66eb9f068beb323f4a31b24eb649cb1cf3126d138e35c"},
 ]
 idna = [
     {file = "idna-2.10-py2.py3-none-any.whl", hash = "sha256:b97d804b1e9b523befed77c48dacec60e6dcb0b5391d57af6a65a312a90648c0"},
@@ -1241,8 +1252,8 @@ iniconfig = [
     {file = "iniconfig-1.0.1.tar.gz", hash = "sha256:e5f92f89355a67de0595932a6c6c02ab4afddc6fcdc0bfc5becd0d60884d3f69"},
 ]
 isort = [
-    {file = "isort-5.5.1-py3-none-any.whl", hash = "sha256:a200d47b7ee8b7f7d0a9646650160c4a51b6a91a9413fd31b1da2c4de789f5d3"},
-    {file = "isort-5.5.1.tar.gz", hash = "sha256:92533892058de0306e51c88f22ece002a209dc8e80288aa3cec6d443060d584f"},
+    {file = "isort-5.5.2-py3-none-any.whl", hash = "sha256:ba91218eee31f1e300ecc079ef0c524cea3fc41bfbb979cbdf5fd3a889e3cfed"},
+    {file = "isort-5.5.2.tar.gz", hash = "sha256:171c5f365791073426b5ed3a156c2081a47f88c329161fd28228ff2da4c97ddb"},
 ]
 jdcal = [
     {file = "jdcal-1.4.1-py2.py3-none-any.whl", hash = "sha256:1abf1305fce18b4e8aa248cf8fe0c56ce2032392bc64bbd61b5dff2a19ec8bba"},
@@ -1331,6 +1342,10 @@ pathspec = [
     {file = "pathspec-0.8.0-py2.py3-none-any.whl", hash = "sha256:7d91249d21749788d07a2d0f94147accd8f845507400749ea19c1ec9054a12b0"},
     {file = "pathspec-0.8.0.tar.gz", hash = "sha256:da45173eb3a6f2a5a487efba21f050af2b41948be6ab52b6a1e3ff22bb8b7061"},
 ]
+phonenumbers = [
+    {file = "phonenumbers-8.12.9-py2.py3-none-any.whl", hash = "sha256:b8644c1dccd45d4c0f54c5b10effcc8c3f733e6a3c2caf40c9175fabc5010ffe"},
+    {file = "phonenumbers-8.12.9.tar.gz", hash = "sha256:f887eceb3d9db17ec479a85245bd0ebe74c5f43489217784215ffb231f8c9e88"},
+]
 pluggy = [
     {file = "pluggy-0.13.1-py2.py3-none-any.whl", hash = "sha256:966c145cd83c96502c3c3868f50408687b38434af77734af1e9ca461a4081d2d"},
     {file = "pluggy-0.13.1.tar.gz", hash = "sha256:15b2acde666561e1298d71b523007ed7364de07029219b604cf808bfa1c765b0"},
@@ -1391,16 +1406,16 @@ pyjwt = [
     {file = "PyJWT-1.7.1.tar.gz", hash = "sha256:8d59a976fb773f3e6a39c85636357c4f0e242707394cadadd9814f5cbaa20e96"},
 ]
 pymysql = [
-    {file = "PyMySQL-0.10.0-py2.py3-none-any.whl", hash = "sha256:adef15ceccf1ff544a23a6f46609f65187261dc8b0cf94c9644189c173b0a451"},
-    {file = "PyMySQL-0.10.0.tar.gz", hash = "sha256:e14070bc84e050e0f80bf6063e31d276f03a0bb4d46b9eca2854566c4ae19837"},
+    {file = "PyMySQL-0.10.1-py2.py3-none-any.whl", hash = "sha256:44f47128dda8676e021c8d2dbb49a82be9e4ab158b9f03e897152a3a287c69ea"},
+    {file = "PyMySQL-0.10.1.tar.gz", hash = "sha256:263040d2779a3b84930f7ac9da5132be0fefcd6f453a885756656103f8ee1fdd"},
 ]
 pyparsing = [
     {file = "pyparsing-2.4.7-py2.py3-none-any.whl", hash = "sha256:ef9d7589ef3c200abe66653d3f1ab1033c3c419ae9b9bdb1240a85b024efc88b"},
     {file = "pyparsing-2.4.7.tar.gz", hash = "sha256:c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"},
 ]
 pytest = [
-    {file = "pytest-6.0.1-py3-none-any.whl", hash = "sha256:8b6007800c53fdacd5a5c192203f4e531eb2a1540ad9c752e052ec0f7143dbad"},
-    {file = "pytest-6.0.1.tar.gz", hash = "sha256:85228d75db9f45e06e57ef9bf4429267f81ac7c0d742cc9ed63d09886a9fe6f4"},
+    {file = "pytest-6.0.2-py3-none-any.whl", hash = "sha256:0e37f61339c4578776e090c3b8f6b16ce4db333889d65d0efb305243ec544b40"},
+    {file = "pytest-6.0.2.tar.gz", hash = "sha256:c8f57c2a30983f469bf03e68cdfa74dc474ce56b8f280ddcb080dfd91df01043"},
 ]
 pytest-cov = [
     {file = "pytest-cov-2.10.1.tar.gz", hash = "sha256:47bd0ce14056fdd79f93e1713f88fad7bdcc583dcd7783da86ef2f085a0bb88e"},
