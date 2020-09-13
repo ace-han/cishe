@@ -61,6 +61,9 @@ class TakeOver(models.Model):
     remark = models.TextField()
 
     class Meta:
-        unique_together = {
-            ("staff", "contract",),
-        }
+        unique_together = (
+            (
+                "staff",
+                "contract",
+            ),
+        )
