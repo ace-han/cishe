@@ -81,3 +81,10 @@ def sunny_user(supervisor_group, operation_group):
     return UserFactory.create(
         username="sunny", groups=[supervisor_group, operation_group]
     )
+
+
+@pytest.fixture
+def luey_user(operation_group):
+    # since above register usage for many2many is not working
+    # we might as well do it this way
+    return UserFactory.create(username="luey", groups=[operation_group])

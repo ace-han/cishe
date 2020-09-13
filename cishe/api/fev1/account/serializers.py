@@ -17,10 +17,19 @@ class UserSerializer(FlexFieldsModelSerializer):
         exclude = ("password",)
 
 
-class UserGroupSerializer(FlexFieldsModelSerializer):
+class UserWithGroupSerializer(FlexFieldsModelSerializer):
     class Meta:
         model = UserModel
         exclude = ["password"]
         expandable_fields = {
             "groups": (GroupSerializer, {"source": "groups", "many": True})
+        }
+
+
+class GroupWithUsersSerializer(FlexFieldsModelSerializer):
+    class Meta:
+        model = Group
+        fields = ALL_FIELDS
+        expandable_fields = {
+            "users": (UserSerializer, {"source": "user_set", "many": True})
         }
