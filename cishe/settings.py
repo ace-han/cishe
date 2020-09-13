@@ -145,6 +145,49 @@ STATIC_URL = "/static/"
 
 TEST_RUNNER = "cishe.tests.runner.PytestTestRunner"
 
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "verbose": {
+            "format": (
+                "%(levelname)s %(asctime)s %(module)s"
+                " %(process)d %(thread)d %(message)s"
+            )
+        },
+        "simple": {"format": "%(levelname)s %(message)s"},
+    },
+    "filters": {
+        "require_debug_false": {"()": "django.utils.log.RequireDebugFalse"},
+        "require_debug_true": {"()": "django.utils.log.RequireDebugTrue"},
+    },
+    "handlers": {
+        "console": {
+            "level": "DEBUG",
+            "class": "logging.StreamHandler",
+            "filters": ["require_debug_true"],
+            "formatter": "verbose",
+        },
+        "mail_admins": {
+            "level": "ERROR",
+            "filters": ["require_debug_false"],
+            "class": "django.utils.log.AdminEmailHandler",
+        },
+    },
+    "loggers": {
+        "django.request": {
+            "handlers": ["console"],
+            "level": "ERROR",
+            "propagate": True,
+        },
+        "django.db.backends": {
+            "handlers": ["console"],
+            "level": env.str("DB_LOG_LEVEL", default="INFO"),
+            "propagate": True,
+        },
+    },
+}
+
 # refer to
 #   https://medium.com/frochu/libphonenumber-example-app-f60680faa599
 # E164 : +886920123456
