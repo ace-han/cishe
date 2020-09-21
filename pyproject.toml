@@ -25,7 +25,7 @@ drf-flex-fields = "^0.8.5"
 # code formatter
 black = "^20.8b1"
 ptvsd = "^4.3.2"
-pytest-django = "^3.9.0"
+pytest-django = "^3.10.0"
 pytest-django-queries = "^1.1.0"
 pytest-mock = "^3.2.0"
 pytest-xdist = "^2.0.0"
