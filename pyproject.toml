@@ -35,7 +35,7 @@ pytest-html = "^2.1.1"
 pytest-factoryboy = "^2.0.3"
 
 # code checker
-flake8 = "^3.8.3"
+flake8 = "^3.8.4"
 flake8-docstrings = "^1.5.0"
 isort = "^5.5.3"
 pre-commit = "^2.6.0"
