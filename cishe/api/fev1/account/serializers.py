@@ -1,4 +1,5 @@
 from django.contrib.auth.models import Group
+from django.db.transaction import atomic
 from rest_flex_fields import FlexFieldsModelSerializer
 from rest_framework.serializers import ALL_FIELDS
 
@@ -33,3 +34,21 @@ class GroupWithUsersSerializer(FlexFieldsModelSerializer):
         expandable_fields = {
             "users": (UserSerializer, {"source": "user_set", "many": True})
         }
+
+    @atomic
+    def create(self, validated_data):
+        instance = super().create(validated_data)
+        user_ids = self.initial_data.get("users") or []
+        if user_ids:
+            user_qs = UserModel.objects.filter(id__in=user_ids)
+            instance.user_set.set(user_qs)
+        return instance
+
+    @atomic
+    def update(self, instance, validated_data):
+        instance = super().update(instance, validated_data)
+        user_ids = self.initial_data.get("users") or []
+        if user_ids:
+            user_qs = UserModel.objects.filter(id__in=user_ids)
+            instance.user_set.set(user_qs)
+        return instance

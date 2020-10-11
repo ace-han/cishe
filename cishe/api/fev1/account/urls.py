@@ -6,8 +6,8 @@ from cishe.api.fev1.account.views import GroupViewSet, UserViewSet
 
 router = DefaultRouter()
 
-router.register("users", UserViewSet)
-router.register("groups", GroupViewSet)
+router.register("users", UserViewSet, "user")
+router.register("groups", GroupViewSet, "group")
 
 urlpatterns = [
     path("", include(router.urls, "")),
