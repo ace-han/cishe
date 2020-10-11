@@ -202,11 +202,25 @@ PHONENUMBER_DB_FORMAT = "E164"
 PHONENUMBER_DEFAULT_REGION = "CN"
 
 REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": (
+        "rest_framework.permissions.AllowAny",  # for the time being only
+    ),
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.BasicAuthentication",
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
+    "DEFAULT_FILTER_BACKENDS": (
+        # 'url_filter.integrations.drf.DjangoFilterBackend',
+        # 'rest_framework.filters.DjangoFilterBackend',
+        # 'django_filters.rest_framework.DjangoFilterBackend',
+        "rest_framework_filters.backends.RestFrameworkFilterBackend",
+        "rest_framework.filters.SearchFilter",
+        # 'rest_framework.filters.OrderingFilter',
+        "cishe.common.filters.RelatedOrderingFilter",
+    ),
+    "DEFAULT_PAGINATION_CLASS": "cishe.common.pagination.StandardPageNumberPagination",
+    "PAGE_SIZE": 20,
 }
 
 SIMPLE_JWT = {
