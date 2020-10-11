@@ -1,10 +1,24 @@
+import rest_framework_filters as filters
 from django.contrib.auth.models import Group
-from rest_framework_filters.filterset import FilterSet
 
 from cishe.account.models import UserModel
 
 
-class UserFilterSet(FilterSet):
+class GroupFilterSet(filters.FilterSet):
+    class Meta:
+        model = Group
+        fields = {
+            "id": (
+                "exact",
+                "in",
+            ),  # fore delete...
+            "name": ("exact", "in", "icontains"),
+        }
+
+
+class UserFilterSet(filters.FilterSet):
+    groups = filters.RelatedFilter(GroupFilterSet, queryset=Group.objects.all())
+
     class Meta:
         model = UserModel
         fields = {
@@ -17,16 +31,4 @@ class UserFilterSet(FilterSet):
             "last_name": ("exact", "in", "icontains"),
             "email": ("exact", "in", "icontains"),
             "is_staff": ("exact",),
-        }
-
-
-class GroupFilterSet(FilterSet):
-    class Meta:
-        model = Group
-        fields = {
-            "id": (
-                "exact",
-                "in",
-            ),  # fore delete...
-            "name": ("exact", "in", "icontains"),
         }

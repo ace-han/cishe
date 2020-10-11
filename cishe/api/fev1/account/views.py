@@ -1,6 +1,9 @@
 from django.contrib.auth.models import Group
 from rest_flex_fields.utils import is_expanded
-from rest_framework.decorators import action
+from rest_framework.decorators import (
+    action,
+    permission_classes as decorate_perm_classes,
+)
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
@@ -22,7 +25,8 @@ from cishe.common.views import BulkDeleteMixin
 class UserViewSet(ModelViewSet, BulkDeleteMixin):
     serializer_class = UserSerializer
     filter_class = UserFilterSet
-    permission_classes = (IsAuthenticated | IsSuperUser,)
+    search_fields = ["username", "first_name", "last_name"]
+    permission_classes = (IsSuperUser | GroupPermissionFactory.create("supervisor"),)
 
     def get_queryset(self):
         queryset = UserModel.objects.all()
@@ -39,6 +43,7 @@ class UserViewSet(ModelViewSet, BulkDeleteMixin):
         return Response(serializer.data)
 
     @action(detail=False, methods=("get",), url_path="current-user-info")
+    @decorate_perm_classes([IsAuthenticated])
     def current_user_info(self, request):
         # may go with groups
         context = self.get_serializer_context()
