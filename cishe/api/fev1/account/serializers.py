@@ -17,6 +17,19 @@ class UserSerializer(FlexFieldsModelSerializer):
         model = UserModel
         exclude = ("password",)
 
+    @atomic
+    def create(self, validated_data):
+        username = validated_data.pop("username")
+        email = validated_data.pop("email", None)
+        if not email:
+            last_name = (validated_data.get("last_name") or username).lower()
+            email = "{}.{}@helloedu.com".format(username, last_name)
+
+        instance = UserModel.objects.create_user(
+            username, email, username, **validated_data
+        )
+        return instance
+
 
 class UserWithGroupSerializer(FlexFieldsModelSerializer):
     class Meta:
@@ -25,6 +38,24 @@ class UserWithGroupSerializer(FlexFieldsModelSerializer):
         expandable_fields = {
             "groups": (GroupSerializer, {"source": "groups", "many": True})
         }
+
+    @atomic
+    def create(self, validated_data):
+        instance = super().create(validated_data)
+        group_ids = self.initial_data.get("groups") or []
+        if group_ids:
+            group_qs = Group.objects.filter(id__in=group_ids)
+            instance.groups.set(group_qs)
+        return instance
+
+    @atomic
+    def update(self, instance, validated_data):
+        instance = super().update(instance, validated_data)
+        group_ids = self.initial_data.get("groups") or []
+        if group_ids:
+            group_qs = Group.objects.filter(id__in=group_ids)
+            instance.groups.set(group_qs)
+        return instance
 
 
 class GroupWithUsersSerializer(FlexFieldsModelSerializer):

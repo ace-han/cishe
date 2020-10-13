@@ -23,7 +23,7 @@ from cishe.common.views import BulkDeleteMixin
 
 
 class UserViewSet(ModelViewSet, BulkDeleteMixin):
-    serializer_class = UserSerializer
+    serializer_class = UserWithGroupSerializer
     filter_class = UserFilterSet
     search_fields = ["username", "first_name", "last_name"]
     permission_classes = (IsSuperUser | GroupPermissionFactory.create("supervisor"),)
@@ -31,23 +31,14 @@ class UserViewSet(ModelViewSet, BulkDeleteMixin):
     def get_queryset(self):
         queryset = UserModel.objects.all()
         if is_expanded(self.request, "groups"):
-            queryset = queryset.prefetch_related("groups")
+            queryset = queryset.prefetch_related("groups", "groups__permissions")
         return queryset
-
-    @action(detail=True, methods=("get",), url_path="user-info")
-    def user_info(self, request, pk=None):
-        # may go with groups
-        obj = self.get_object()
-        context = self.get_serializer_context()
-        serializer = UserWithGroupSerializer(obj, context=context)
-        return Response(serializer.data)
 
     @action(detail=False, methods=("get",), url_path="current-user-info")
     @decorate_perm_classes([IsAuthenticated])
     def current_user_info(self, request):
-        # may go with groups
-        context = self.get_serializer_context()
-        serializer = UserWithGroupSerializer(request.user, context=context)
+        user = request.user
+        serializer = self.get_serializer(user)
         return Response(serializer.data)
 
 
