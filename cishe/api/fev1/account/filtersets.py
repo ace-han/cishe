@@ -30,5 +30,5 @@ class UserFilterSet(filters.FilterSet):
             "first_name": ("exact", "in", "icontains"),
             "last_name": ("exact", "in", "icontains"),
             "email": ("exact", "in", "icontains"),
-            "is_staff": ("exact",),
+            "is_active": ("exact",),
         }
