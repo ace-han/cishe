@@ -34,6 +34,14 @@ class UserViewSet(ModelViewSet, BulkDeleteMixin):
             queryset = queryset.prefetch_related("groups", "groups__permissions")
         return queryset
 
+    @action(detail=True, methods=("post",), url_path="password")
+    def update_password(self, request, pk=None):
+        instance = self.get_object()
+        password = request.data.get("password")
+        instance.set_password(password)
+        instance.save()
+        return Response({"detail": "success"})
+
     @action(detail=False, methods=("get",), url_path="current-user-info")
     @decorate_perm_classes([IsAuthenticated])
     def current_user_info(self, request):
