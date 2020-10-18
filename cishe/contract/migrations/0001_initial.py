@@ -32,7 +32,7 @@ class Migration(migrations.Migration):
                 ("source", models.CharField(blank=True, max_length=8)),
                 ("signing_date", models.DateField()),
                 ("signing_branch", models.CharField(max_length=4)),
-                ("free_date_until", models.DateField()),
+                ("probation_until", models.DateField()),
                 ("total_amount", models.PositiveIntegerField()),
                 ("total_amount_remark", models.CharField(blank=True, max_length=256)),
                 ("referrer", models.CharField(blank=True, max_length=32)),

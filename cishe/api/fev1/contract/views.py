@@ -1,6 +1,7 @@
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
 
+from cishe.api.fev1.contract.filtersets import CustomerFilterSet
 from cishe.api.fev1.contract.serializers import (
     ContractSerializer,
     CustomerSerializer,
@@ -19,6 +20,7 @@ class ContractViewSet(ModelViewSet):
 class CustomerViewSet(ModelViewSet):
     queryset = Customer.objects.all()
     serializer_class = CustomerSerializer
+    filter_class = CustomerFilterSet
     permission_classes = (IsAuthenticated,)
 
 

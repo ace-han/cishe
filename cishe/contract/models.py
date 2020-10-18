@@ -1,9 +1,8 @@
-from django.contrib.auth import get_user_model
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 
+from cishe.account.models import UserModel
 
-UserModel = get_user_model()
 
 # leave it class to front end
 # class ContractSource(Enum):
@@ -12,23 +11,8 @@ UserModel = get_user_model()
 #     SITE_VISIT = 'site_visit'
 
 
-class Contract(models.Model):
-    contract_num = models.CharField(max_length=16)
-    contract_type = models.CharField(max_length=8)
-    source = models.CharField(max_length=8, blank=True)
-    signing_date = models.DateField()
-    signing_branch = models.CharField(max_length=4)
-    sale_agent = models.ForeignKey(UserModel, on_delete=models.CASCADE)
-    free_date_until = models.DateField()
-    total_amount = models.PositiveIntegerField()
-    total_amount_remark = models.CharField(max_length=256, blank=True)
-    referrer = models.CharField(max_length=32, blank=True)
-    supplementary_agreement = models.TextField(blank=True)
-
-
 class Customer(models.Model):
-    contract = models.OneToOneField(Contract, on_delete=models.CASCADE, unique=True)
-    name = models.CharField(max_length=8)
+    name = models.CharField(max_length=32, unique=True)
     phone_num = PhoneNumberField()
     phone_num2 = PhoneNumberField(blank=True)
     email = models.EmailField(blank=True)
@@ -37,6 +21,20 @@ class Customer(models.Model):
     university = models.CharField(max_length=32)
     department = models.CharField(max_length=32, blank=True)
     major = models.CharField(max_length=32, blank=True)
+
+
+class Contract(models.Model):
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    contract_num = models.CharField(max_length=16)
+    contract_type = models.CharField(max_length=8)
+    source = models.CharField(max_length=8, blank=True)
+    signing_date = models.DateField()
+    signing_branch = models.CharField(max_length=4)
+    sale_agent = models.ForeignKey(UserModel, on_delete=models.CASCADE)
+    probation_until = models.DateField()
+    total_amount = models.PositiveIntegerField()
+    referrer = models.CharField(max_length=32, blank=True)
+    supplementary_agreement = models.TextField(blank=True)
 
 
 class ServiceInfo(models.Model):
@@ -51,14 +49,13 @@ class ServiceInfo(models.Model):
     workload = models.FloatField()
     status = models.CharField(max_length=32)
     start_date = models.DateField()
-    remark = models.TextField()  # including workload remark
+    remark = models.TextField(blank=True)  # including workload remark
 
 
 class TakeOver(models.Model):
     staff = models.ForeignKey(UserModel, on_delete=models.CASCADE)
     contract = models.ForeignKey(Contract, on_delete=models.CASCADE)
     transfer_date = models.DateField()
-    remark = models.TextField()
 
     class Meta:
         unique_together = (
