@@ -279,7 +279,7 @@ typing-extensions = "*"
 
 [[package]]
 name = "djangorestframework"
-version = "3.12.1"
+version = "3.12.2"
 description = "Web APIs for Django, made easy."
 category = "main"
 optional = false
@@ -1036,7 +1036,7 @@ testing = ["coverage (>=5)", "coverage-enable-subprocess (>=1)", "flaky (>=3)", 
 [metadata]
 lock-version = "1.1"
 python-versions = "3.8.*"
-content-hash = "9e780be936c2cdab35b035d4025b00f1e68b95ac6079fc6ec2a400f30d9e91b4"
+content-hash = "685c6201f13ab87e37ff068996d579d1fb462db4b6c362e50e38d0febd256985"
 
 [metadata.files]
 apipkg = [
@@ -1217,8 +1217,7 @@ django-stubs = [
     {file = "django_stubs-1.5.0-py3-none-any.whl", hash = "sha256:4a03df70e062f4133085efc461148d0934f36ccfd60a2b6d7bc35821f62008b6"},
 ]
 djangorestframework = [
-    {file = "djangorestframework-3.12.1-py3-none-any.whl", hash = "sha256:5c5071fcbad6dce16f566d492015c829ddb0df42965d488b878594aabc3aed21"},
-    {file = "djangorestframework-3.12.1.tar.gz", hash = "sha256:d54452aedebb4b650254ca092f9f4f5df947cb1de6ab245d817b08b4f4156249"},
+    {file = "djangorestframework-3.12.2-py3-none-any.whl", hash = "sha256:0209bafcb7b5010fdfec784034f059d512256424de2a0f084cb82b096d6dd6a7"},
 ]
 djangorestframework-filters = [
     {file = "djangorestframework-filters-1.0.0.dev2.tar.gz", hash = "sha256:ef84527e3427434d54228825b53a35098c8633c1e77b71d06b79597b749ea3f2"},
