@@ -1,6 +1,7 @@
 from rest_flex_fields import FlexFieldsModelSerializer
 from rest_framework.serializers import ALL_FIELDS
 
+from cishe.api.fev1.account.serializers import UserSerializer
 from cishe.contract.models import Contract, Customer, ServiceInfo, TakeOver
 
 
@@ -23,6 +24,7 @@ class ContractSerializer(FlexFieldsModelSerializer):
 
     expandable_fields = {
         "customer": (CustomerSerializer, {"source": "customer"}),
+        "sale_agent": (UserSerializer, {"source": "sale_agent"}),
         "serviceinfo": (ServiceInfoSerializer, {"source": "serviceinfo"}),
     }
 

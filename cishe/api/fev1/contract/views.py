@@ -12,9 +12,12 @@ from cishe.contract.models import Contract, Customer, ServiceInfo, TakeOver
 
 
 class ContractViewSet(ModelViewSet):
-    queryset = Contract.objects.all()
     serializer_class = ContractSerializer
     permission_classes = (IsAuthenticated,)
+
+    def get_queryset(self):
+        qs = Contract.objects.prefetch_related("customer", "sale_agent", "serviceinfo")
+        return qs
 
 
 class CustomerViewSet(ModelViewSet):

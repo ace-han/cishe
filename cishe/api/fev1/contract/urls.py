@@ -11,7 +11,7 @@ from cishe.api.fev1.contract.views import (
 
 router = DefaultRouter()
 
-router.register("contracts", ContractViewSet)
+router.register("contracts", ContractViewSet, "contract")
 router.register("customers", CustomerViewSet)
 router.register("services", ServiceInfoViewSet)
 router.register("takeovers", TakeOverViewSet)
