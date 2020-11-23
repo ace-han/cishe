@@ -18,7 +18,7 @@ pymysql = {version = "^0.10.0", extras = ["rsa"]}
 django-environ = "^0.4.5"
 django-phonenumber-field = {version = "^5.0.0", extras = ["phonenumbers"]}
 djangorestframework-simplejwt = {git = "https://github.com/AtuzSolution/django-rest-framework-simplejwt", rev = "jwt_cookie"}
-drf-flex-fields = "^0.8.5"
+drf-flex-fields = "^0.8.8"
 djangorestframework-filters = "1.0.0.dev2"
 
 
