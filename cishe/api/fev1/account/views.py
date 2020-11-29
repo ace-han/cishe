@@ -26,7 +26,11 @@ class UserViewSet(ModelViewSet, BulkDeleteMixin):
     serializer_class = UserWithGroupSerializer
     filter_class = UserFilterSet
     search_fields = ["username", "first_name", "last_name"]
-    permission_classes = (IsSuperUser | GroupPermissionFactory.create("supervisor"),)
+    permission_classes = (
+        IsSuperUser
+        | GroupPermissionFactory.create("supervisor")
+        | GroupPermissionFactory.create("admin"),
+    )
 
     def get_queryset(self):
         queryset = UserModel.objects.all()
