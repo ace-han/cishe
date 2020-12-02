@@ -28,10 +28,10 @@ class Contract(models.Model):
     contract_num = models.CharField(max_length=16)
     contract_type = models.CharField(max_length=8)
     source = models.CharField(max_length=8, blank=True)
-    signing_date = models.DateField()
+    signing_date = models.DateTimeField()
     signing_branch = models.CharField(max_length=4)
     sale_agent = models.ForeignKey(UserModel, on_delete=models.CASCADE)
-    probation_until = models.DateField()
+    probation_until = models.DateTimeField()
     total_amount = models.PositiveIntegerField()
     referrer = models.CharField(max_length=32, blank=True)
     supplementary_agreement = models.TextField(blank=True)
@@ -48,14 +48,14 @@ class ServiceInfo(models.Model):
     team = models.CharField(max_length=4)
     workload = models.FloatField()
     status = models.CharField(max_length=32)
-    start_date = models.DateField()
+    start_date = models.DateTimeField()
     remark = models.TextField(blank=True)  # including workload remark
 
 
 class TakeOver(models.Model):
     staff = models.ForeignKey(UserModel, on_delete=models.CASCADE)
     contract = models.ForeignKey(Contract, on_delete=models.CASCADE)
-    transfer_date = models.DateField()
+    transfer_date = models.DateTimeField()
 
     class Meta:
         unique_together = (
