@@ -17,7 +17,7 @@ class Customer(models.Model):
     phone_num2 = PhoneNumberField(blank=True)
     email = models.EmailField(blank=True)
     parent_phone_num = PhoneNumberField(blank=True)
-    parent_type = models.CharField(max_length=4, blank=True)
+    parent_type = models.CharField(max_length=8, blank=True)
     university = models.CharField(max_length=32)
     department = models.CharField(max_length=32, blank=True)
     major = models.CharField(max_length=32, blank=True)

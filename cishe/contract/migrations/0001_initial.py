@@ -110,7 +110,7 @@ class Migration(migrations.Migration):
                         blank=True, max_length=128, region=None
                     ),
                 ),
-                ("parent_type", models.CharField(blank=True, max_length=4)),
+                ("parent_type", models.CharField(blank=True, max_length=8)),
                 ("university", models.CharField(max_length=32)),
                 ("department", models.CharField(blank=True, max_length=32)),
                 ("major", models.CharField(blank=True, max_length=32)),
