@@ -25,6 +25,7 @@ class CustomerViewSet(ModelViewSet):
     serializer_class = CustomerSerializer
     filter_class = CustomerFilterSet
     permission_classes = (IsAuthenticated,)
+    search_fields = ["name", "phone_num"]
 
 
 class ServiceInfoViewSet(ModelViewSet):
