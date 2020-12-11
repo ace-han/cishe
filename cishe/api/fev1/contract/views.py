@@ -1,26 +1,40 @@
+from django.db.models.query import Prefetch
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
 
-from cishe.api.fev1.contract.filtersets import CustomerFilterSet
+from cishe.api.fev1.contract.filtersets import (
+    ContractFilterSet,
+    CustomerFilterSet,
+    TakeOverFilterSet,
+)
 from cishe.api.fev1.contract.serializers import (
-    ContractSerializer,
     CustomerSerializer,
+    EditableContractSerializer,
     ServiceInfoSerializer,
     TakeOverSerializer,
 )
+from cishe.common.views import BulkDeleteMixin
 from cishe.contract.models import Contract, Customer, ServiceInfo, TakeOver
 
 
-class ContractViewSet(ModelViewSet):
-    serializer_class = ContractSerializer
+class ContractViewSet(ModelViewSet, BulkDeleteMixin):
+    serializer_class = EditableContractSerializer
     permission_classes = (IsAuthenticated,)
+    filter_class = ContractFilterSet
 
     def get_queryset(self):
-        qs = Contract.objects.prefetch_related("customer", "sale_agent", "serviceinfo")
+        qs = Contract.objects.prefetch_related(
+            "customer",
+            "sale_agent",
+            "serviceinfo",
+            Prefetch(
+                "takeover_set", queryset=TakeOver.objects.order_by("-transfer_date")
+            ),
+        )
         return qs
 
 
-class CustomerViewSet(ModelViewSet):
+class CustomerViewSet(ModelViewSet, BulkDeleteMixin):
     queryset = Customer.objects.all()
     serializer_class = CustomerSerializer
     filter_class = CustomerFilterSet
@@ -28,13 +42,14 @@ class CustomerViewSet(ModelViewSet):
     search_fields = ["name", "phone_num"]
 
 
-class ServiceInfoViewSet(ModelViewSet):
+class ServiceInfoViewSet(ModelViewSet, BulkDeleteMixin):
     queryset = ServiceInfo.objects.all()
     serializer_class = ServiceInfoSerializer
     permission_classes = (IsAuthenticated,)
 
 
-class TakeOverViewSet(ModelViewSet):
+class TakeOverViewSet(ModelViewSet, BulkDeleteMixin):
     queryset = TakeOver.objects.all()
     serializer_class = TakeOverSerializer
     permission_classes = (IsAuthenticated,)
+    filter_class = TakeOverFilterSet
