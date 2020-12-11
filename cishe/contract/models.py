@@ -25,11 +25,11 @@ class Customer(models.Model):
 
 class Contract(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
-    contract_num = models.CharField(max_length=16)
+    contract_num = models.CharField(max_length=16, blank=True)
     contract_type = models.CharField(max_length=8)
     source = models.CharField(max_length=8, blank=True)
     signing_date = models.DateTimeField()
-    signing_branch = models.CharField(max_length=4)
+    signing_branch = models.CharField(max_length=4, blank=True)
     sale_agent = models.ForeignKey(UserModel, on_delete=models.CASCADE)
     probation_until = models.DateTimeField()
     total_amount = models.PositiveIntegerField()
@@ -40,14 +40,14 @@ class Contract(models.Model):
 class ServiceInfo(models.Model):
     contract = models.OneToOneField(Contract, on_delete=models.CASCADE, unique=True)
     enrollment_semester = models.CharField(max_length=4)
-    retention_statement = models.CharField(max_length=32)
+    retention_statement = models.CharField(max_length=32, blank=True)
     target_country_code = models.CharField(max_length=32)  # concat with comma s
     target_subject = models.CharField(max_length=4)
     target_degree = models.CharField(max_length=4)
-    target_major = models.CharField(max_length=32)
+    target_major = models.CharField(max_length=32)  # concat with comma s
     team = models.CharField(max_length=4)
     workload = models.FloatField()
-    status = models.CharField(max_length=32)
+    status = models.CharField(max_length=32, blank=True)
     start_date = models.DateTimeField()
     remark = models.TextField(blank=True)  # including workload remark
 
@@ -56,6 +56,7 @@ class TakeOver(models.Model):
     staff = models.ForeignKey(UserModel, on_delete=models.CASCADE)
     contract = models.ForeignKey(Contract, on_delete=models.CASCADE)
     transfer_date = models.DateTimeField()
+    remark = models.TextField(blank=True)
 
     class Meta:
         unique_together = (
