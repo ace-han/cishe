@@ -1,6 +1,9 @@
 from typing import List, Tuple
 
+import rest_framework_filters as filters
 from django.db import models
+from django.forms import CharField
+from django_filters.fields import BaseCSVField
 from rest_framework.filters import OrderingFilter
 
 
@@ -59,3 +62,11 @@ class RelatedOrderingFilter(OrderingFilter):
                 *[(key, key.title().split("__")) for key in queryset.query.annotations],
             ]
         return valid_fields
+
+
+class CharCSVField(BaseCSVField, CharField):
+    pass
+
+
+class CharCSVFilter(filters.BaseInFilter):
+    base_field_class = CharCSVField
