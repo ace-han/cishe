@@ -144,7 +144,7 @@ class Migration(migrations.Migration):
                     ),
                 ),
                 (
-                    "staff",
+                    "counselor",
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
                         to=settings.AUTH_USER_MODEL,
@@ -152,7 +152,7 @@ class Migration(migrations.Migration):
                 ),
             ],
             options={
-                "unique_together": {("staff", "contract")},
+                "unique_together": {("counselor", "contract")},
             },
         ),
     ]

@@ -53,7 +53,7 @@ class ServiceInfo(models.Model):
 
 
 class TakeOver(models.Model):
-    staff = models.ForeignKey(UserModel, on_delete=models.CASCADE)
+    counselor = models.ForeignKey(UserModel, on_delete=models.CASCADE)
     contract = models.ForeignKey(Contract, on_delete=models.CASCADE)
     transfer_date = models.DateTimeField()
     remark = models.TextField(blank=True)
@@ -61,7 +61,7 @@ class TakeOver(models.Model):
     class Meta:
         unique_together = (
             (
-                "staff",
+                "counselor",
                 "contract",
             ),
         )

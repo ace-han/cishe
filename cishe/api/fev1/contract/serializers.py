@@ -25,7 +25,7 @@ class TakeOverSerializer(FlexFieldsModelSerializer):
         fields = ALL_FIELDS
 
     expandable_fields = {
-        "staff": (UserSerializer, {"source": "staff"}),
+        "counselor": (UserSerializer, {"source": "counselor"}),
     }
 
 
