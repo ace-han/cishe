@@ -12,7 +12,7 @@ from cishe.account.models import UserModel
 
 
 class Customer(models.Model):
-    name = models.CharField(max_length=32, unique=True)
+    name = models.CharField(max_length=32)
     phone_num = PhoneNumberField()
     phone_num2 = PhoneNumberField(blank=True)
     email = models.EmailField(blank=True)
@@ -21,6 +21,9 @@ class Customer(models.Model):
     university = models.CharField(max_length=32)
     department = models.CharField(max_length=32, blank=True)
     major = models.CharField(max_length=32, blank=True)
+
+    class Meta:
+        unique_together = [("phone_num",)]
 
 
 class Contract(models.Model):
@@ -35,6 +38,9 @@ class Contract(models.Model):
     total_amount = models.PositiveIntegerField()
     referrer = models.CharField(max_length=32, blank=True)
     supplementary_agreement = models.TextField(blank=True)
+
+    class Meta:
+        unique_together = [("contract_num",)]
 
 
 class ServiceInfo(models.Model):

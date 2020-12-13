@@ -26,7 +26,7 @@ class Migration(migrations.Migration):
                         verbose_name="ID",
                     ),
                 ),
-                ("name", models.CharField(max_length=32, unique=True)),
+                ("name", models.CharField(max_length=32)),
                 (
                     "phone_num",
                     phonenumber_field.modelfields.PhoneNumberField(
@@ -51,6 +51,9 @@ class Migration(migrations.Migration):
                 ("department", models.CharField(blank=True, max_length=32)),
                 ("major", models.CharField(blank=True, max_length=32)),
             ],
+            options={
+                "unique_together": {("phone_num",)},
+            },
         ),
         migrations.CreateModel(
             name="Contract",
@@ -89,6 +92,9 @@ class Migration(migrations.Migration):
                     ),
                 ),
             ],
+            options={
+                "unique_together": {("contract_num",)},
+            },
         ),
         migrations.CreateModel(
             name="ServiceInfo",
