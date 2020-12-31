@@ -783,16 +783,16 @@ dev = ["beautifulsoup4", "lxml", "sphinx", "sphinx-rtd-theme", "pre-commit", "mo
 
 [[package]]
 name = "pytest-factoryboy"
-version = "2.0.3"
+version = "2.1.0"
 description = "Factory Boy support for pytest."
 category = "dev"
 optional = false
-python-versions = "*"
+python-versions = ">=3.6"
 
 [package.dependencies]
-factory_boy = ">=2.10.0"
+factory-boy = ">=2.10.0"
 inflection = "*"
-pytest = ">=3.3.2"
+pytest = ">=4.6"
 
 [[package]]
 name = "pytest-forked"
@@ -1036,7 +1036,7 @@ testing = ["coverage (>=5)", "coverage-enable-subprocess (>=1)", "flaky (>=3)", 
 [metadata]
 lock-version = "1.1"
 python-versions = "3.8.*"
-content-hash = "1bf4a5936d2c50efbd5b0747c2b2e9e5a7f197f49ef35c6c9b6bfaf0d71d71bb"
+content-hash = "c108b82e737bfce0d765520829b6372e535357b88584a2c14fa978e776d6c10e"
 
 [metadata.files]
 apipkg = [
@@ -1451,7 +1451,8 @@ pytest-django-queries = [
     {file = "pytest-django-queries-1.1.0.tar.gz", hash = "sha256:16f4dffa5a4c95bb2e10e6f4289796503578bc46ea69a81b2f4ed8376f7c75b5"},
 ]
 pytest-factoryboy = [
-    {file = "pytest-factoryboy-2.0.3.tar.gz", hash = "sha256:ffef3fb7ddec1299d3df0d334846259023f3d1da5ab887ad880139a8253a5a1a"},
+    {file = "pytest-factoryboy-2.1.0.tar.gz", hash = "sha256:23bc562ab32cc39eddfbbbf70e618a1b30e834a4cfa451c4bedc36216f0a7b19"},
+    {file = "pytest_factoryboy-2.1.0-py3-none-any.whl", hash = "sha256:10c02d2736cb52c7af28065db9617e7f50634e95eaa07eeb9a007026aa3dc0a8"},
 ]
 pytest-forked = [
     {file = "pytest-forked-1.3.0.tar.gz", hash = "sha256:6aa9ac7e00ad1a539c41bec6d21011332de671e938c7637378ec9710204e37ca"},
