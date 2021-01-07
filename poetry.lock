@@ -688,7 +688,7 @@ test = ["pytest (>=4.0.1,<5.0.0)", "pytest-cov (>=2.6.0,<3.0.0)", "pytest-runner
 
 [[package]]
 name = "pymysql"
-version = "0.10.1"
+version = "1.0.0"
 description = "Pure Python MySQL Driver"
 category = "main"
 optional = false
@@ -1036,7 +1036,7 @@ testing = ["coverage (>=5)", "coverage-enable-subprocess (>=1)", "flaky (>=3)", 
 [metadata]
 lock-version = "1.1"
 python-versions = "3.8.*"
-content-hash = "dfa1a0c959b6f74990b241c9d6d2a37c32144fcc61dc7b1464993a2d6977a75c"
+content-hash = "c5a6399e98ab99d4ad1532e0fa16b71510159b92fb5b94df0b8c23380104119d"
 
 [metadata.files]
 apipkg = [
@@ -1218,6 +1218,7 @@ django-stubs = [
 ]
 djangorestframework = [
     {file = "djangorestframework-3.12.2-py3-none-any.whl", hash = "sha256:0209bafcb7b5010fdfec784034f059d512256424de2a0f084cb82b096d6dd6a7"},
+    {file = "djangorestframework-3.12.2.tar.gz", hash = "sha256:0898182b4737a7b584a2c73735d89816343369f259fea932d90dc78e35d8ac33"},
 ]
 djangorestframework-filters = [
     {file = "djangorestframework-filters-1.0.0.dev2.tar.gz", hash = "sha256:ef84527e3427434d54228825b53a35098c8633c1e77b71d06b79597b749ea3f2"},
@@ -1428,8 +1429,8 @@ pyjwt = [
     {file = "PyJWT-1.7.1.tar.gz", hash = "sha256:8d59a976fb773f3e6a39c85636357c4f0e242707394cadadd9814f5cbaa20e96"},
 ]
 pymysql = [
-    {file = "PyMySQL-0.10.1-py2.py3-none-any.whl", hash = "sha256:44f47128dda8676e021c8d2dbb49a82be9e4ab158b9f03e897152a3a287c69ea"},
-    {file = "PyMySQL-0.10.1.tar.gz", hash = "sha256:263040d2779a3b84930f7ac9da5132be0fefcd6f453a885756656103f8ee1fdd"},
+    {file = "PyMySQL-1.0.0-py3-none-any.whl", hash = "sha256:1ebdce36061c61fe32d3156825768236ac19b62b23180e1667032b2c690921c7"},
+    {file = "PyMySQL-1.0.0.tar.gz", hash = "sha256:b2508a7dc6b626210e52f711d2c2361d102d8d9b8b144e63b2512e748de1a49b"},
 ]
 pyparsing = [
     {file = "pyparsing-2.4.7-py2.py3-none-any.whl", hash = "sha256:ef9d7589ef3c200abe66653d3f1ab1033c3c419ae9b9bdb1240a85b024efc88b"},
