@@ -14,7 +14,7 @@ openpyxl = "^3.0.5"
 django-redis = "^4.12.1"
 pyyaml = "^5.3.1"
 django-memoize = "^2.3.1"
-pymysql = {version = "^1.0.1", extras = ["rsa"]}
+pymysql = {version = "^1.0.2", extras = ["rsa"]}
 django-environ = "^0.4.5"
 django-phonenumber-field = {version = "^5.0.0", extras = ["phonenumbers"]}
 djangorestframework-simplejwt = {git = "https://github.com/AtuzSolution/django-rest-framework-simplejwt", rev = "jwt_cookie"}
