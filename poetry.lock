@@ -764,7 +764,7 @@ testing = ["django", "django-configurations (>=2.0)"]
 
 [[package]]
 name = "pytest-django-queries"
-version = "1.1.0"
+version = "1.2.0"
 description = "Generate performance reports from your django database performance tests."
 category = "dev"
 optional = false
@@ -780,6 +780,7 @@ pytest = ">=4.4.0"
 
 [package.extras]
 dev = ["beautifulsoup4", "lxml", "sphinx", "sphinx-rtd-theme", "pre-commit", "mock"]
+test = ["pytest-xdist", "tox-travis", "codecov", "coverage", "beautifulsoup4", "lxml", "sphinx", "sphinx-rtd-theme", "pre-commit", "mock"]
 
 [[package]]
 name = "pytest-factoryboy"
@@ -1036,7 +1037,7 @@ testing = ["coverage (>=5)", "coverage-enable-subprocess (>=1)", "flaky (>=3)", 
 [metadata]
 lock-version = "1.1"
 python-versions = "3.8.*"
-content-hash = "a973f45e200c68fd0606442ab866f3024d964fc1c8ee9e0af9a91907a0fb9537"
+content-hash = "843e5db20d46da122ad9a3230ed19cb05b92e1695cb96977e9176162d02f6d64"
 
 [metadata.files]
 apipkg = [
@@ -1460,7 +1461,7 @@ pytest-django = [
     {file = "pytest_django-4.1.0-py3-none-any.whl", hash = "sha256:10e384e6b8912ded92db64c58be8139d9ae23fb8361e5fc139d8e4f8fc601bc2"},
 ]
 pytest-django-queries = [
-    {file = "pytest-django-queries-1.1.0.tar.gz", hash = "sha256:16f4dffa5a4c95bb2e10e6f4289796503578bc46ea69a81b2f4ed8376f7c75b5"},
+    {file = "pytest-django-queries-1.2.0.tar.gz", hash = "sha256:7d683d06af711c4f3ac049b3a7035070ce3888a3575ce8ae4b8a41b7b7869f1c"},
 ]
 pytest-factoryboy = [
     {file = "pytest-factoryboy-2.1.0.tar.gz", hash = "sha256:23bc562ab32cc39eddfbbbf70e618a1b30e834a4cfa451c4bedc36216f0a7b19"},
