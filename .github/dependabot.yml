@@ -9,3 +9,10 @@ updates:
   - dependency-name: black
     versions:
     - 21.4b1
+# refer to 
+# https://docs.github.com/en/code-security/supply-chain-security/keeping-your-actions-up-to-date-with-dependabot
+- package-ecosystem: "github-actions"
+  directory: "/"
+  schedule:
+    # Check for updates to GitHub Actions every weekday
+    interval: "daily"
