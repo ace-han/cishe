@@ -340,7 +340,7 @@ typing-extensions = "*"
 
 [[package]]
 name = "drf-flex-fields"
-version = "0.8.9"
+version = "0.9.0"
 description = "Flexible, dynamic fields and nested resources for Django REST Framework serializers."
 category = "main"
 optional = false
@@ -1027,7 +1027,7 @@ testing = ["coverage (>=5)", "coverage-enable-subprocess (>=1)", "flaky (>=3)", 
 [metadata]
 lock-version = "1.1"
 python-versions = "3.8.*"
-content-hash = "fcc64f9b507da91930f3042a46018fdd75ba49b4b4269af6bdc7f53b45e7c8f5"
+content-hash = "0683953955bb8044e211dad9f9192fba0810e12b35db11ce9254ba57d4e9c591"
 
 [metadata.files]
 apipkg = [
@@ -1214,7 +1214,7 @@ djangorestframework-stubs = [
     {file = "djangorestframework_stubs-1.2.0-py3-none-any.whl", hash = "sha256:5df991dcdf28b2b761645282dfcae53f41d58200291ff7d5c0d028925fd9f215"},
 ]
 drf-flex-fields = [
-    {file = "drf-flex-fields-0.8.9.tar.gz", hash = "sha256:f68174ee294c7597933989522e87e2c69bbafde922fb353e27b3bc53487fc7de"},
+    {file = "drf-flex-fields-0.9.0.tar.gz", hash = "sha256:987a1ed29adf9c0468bf345b0a7284ce48f7b642083e13e2b2a30eb90d42dfa8"},
 ]
 et-xmlfile = [
     {file = "et_xmlfile-1.0.1.tar.gz", hash = "sha256:614d9722d572f6246302c4491846d2c393c199cfa4edc9af593437691683335b"},
