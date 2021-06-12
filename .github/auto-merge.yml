@@ -16,24 +16,25 @@
 # semver version number like below
 # major:minor:patch
 
-# - match:
-#   dependency_type: development
-#   update_type: semver:minor # includes patch updates!
+- match:
+  dependency_type: development
+  update_type: semver:minor # includes patch updates!
 
 # any security update will be auto merged
-# - match:
-#   dependency_type: production
-#   update_type: security:minor # includes patch updates!
+- match:
+  dependency_type: production
+  update_type: security:minor # includes patch updates!
 
 # copied from https://github.com/ahmadnassri/action-dependabot-auto-merge/blob/master/.github/auto-merge.yml
 # when it's production, only patch will be merged, 
 # like 1.x && 1.0.1 to 1.0.3, not 1.1.x, 1.2.x, 2.x.x
-# - match:
-#   dependency_type: production
-#   # set it to update_type: semver:minor will auto merge everything
-#   update_type: semver:patch
+- match:
+  dependency_type: production
+  # set it to update_type: semver:minor will auto merge everything
+  update_type: semver:patch
 
 # as a test repo, I'd like it to auto merge everything
-- match:
-  dependency_type: all
-  update_type: semver:minor
+# disabled below config for closing not auto-merging with stale.yml
+# - match:
+#   dependency_type: all
+#   update_type: semver:minor
