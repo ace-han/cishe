@@ -1,0 +1,11 @@
+# refer to
+# https://github.com/ahmadnassri/action-dependabot-auto-merge#configuration-file-syntax
+# https://hugo.alliau.me/2021/05/04/migration-to-github-native-dependabot-solutions-for-auto-merge-and-action-secrets/#re-enable-auto-merging-with-auto-approve
+
+- match:
+      dependency_type: development
+      update_type: semver:minor # includes patch updates!
+
+- match:
+      dependency_type: production
+      update_type: security:minor # includes patch updates!
