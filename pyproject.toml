@@ -26,7 +26,7 @@ djangorestframework-filters = "1.0.0.dev2"
 # code formatter
 black = "^21.5b2"
 ptvsd = "^4.3.2"
-pytest-django = "^4.3.0"
+pytest-django = "^4.4.0"
 pytest-django-queries = "^1.2.0"
 pytest-mock = "^3.6.1"
 pytest-xdist = "^2.2.1"
