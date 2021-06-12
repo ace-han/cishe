@@ -2,15 +2,38 @@
 # https://github.com/ahmadnassri/action-dependabot-auto-merge#configuration-file-syntax
 # https://hugo.alliau.me/2021/05/04/migration-to-github-native-dependabot-solutions-for-auto-merge-and-action-secrets/#re-enable-auto-merging-with-auto-approve
 
-- match:
-  dependency_type: development
-  update_type: semver:minor # includes patch updates!
+# update_type can specify security match or semver match with the syntax: ${type}:${match}, e.g.
 
-- match:
-  dependency_type: production
-  update_type: security:minor # includes patch updates!
+# security:patch
+# SemVer patch update that fixes a known security vulnerability
+
+# semver:patch
+# SemVer patch update, e.g. > 1.x && 1.0.1 to 1.0.3
+
+# semver:minor
+# SemVer minor update, e.g. > 1.x && 2.1.4 to 2.3.1
+
+# semver version number like below
+# major:minor:patch
+
+# - match:
+#   dependency_type: development
+#   update_type: semver:minor # includes patch updates!
+
+# any security update will be auto merged
+# - match:
+#   dependency_type: production
+#   update_type: security:minor # includes patch updates!
 
 # copied from https://github.com/ahmadnassri/action-dependabot-auto-merge/blob/master/.github/auto-merge.yml
+# when it's production, only patch will be merged, 
+# like 1.x && 1.0.1 to 1.0.3, not 1.1.x, 1.2.x, 2.x.x
+# - match:
+#   dependency_type: production
+#   # set it to update_type: semver:minor will auto merge everything
+#   update_type: semver:patch
+
+# as a test repo, I'd like it to auto merge everything
 - match:
-  dependency_type: production
-  update_type: semver:patch
+  dependency_type: all
+  update_type: semver:minor
