@@ -31,7 +31,7 @@ pytest-django-queries = "^1.2.0"
 pytest-mock = "^3.6.1"
 pytest-xdist = "^2.2.1"
 tox = "^3.23.1"
-pytest-cov = "^2.12.1"
+pytest-cov = "^3.0.0"
 pytest-html = "^3.1.1"
 pytest-factoryboy = "^2.1.0"
 
