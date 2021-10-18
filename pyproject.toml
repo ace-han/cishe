@@ -12,7 +12,7 @@ djangorestframework = "^3.12.4"
 requests = "^2.25.1"
 openpyxl = "^3.0.9"
 django-redis = "^5.0.0"
-pyyaml = "^5.4"
+pyyaml = "^6.0"
 django-memoize = "^2.3.1"
 pymysql = {version = "^1.0.2", extras = ["rsa"]}
 django-environ = "^0.4.5"
