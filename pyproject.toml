@@ -15,7 +15,7 @@ django-redis = "^5.0.0"
 pyyaml = "^5.4"
 django-memoize = "^2.3.1"
 pymysql = {version = "^1.0.2", extras = ["rsa"]}
-django-environ = "^0.4.5"
+django-environ = "^0.8.0"
 django-phonenumber-field = {version = "^5.1.0", extras = ["phonenumbers"]}
 djangorestframework-simplejwt = {git = "https://github.com/AtuzSolution/django-rest-framework-simplejwt", rev = "jwt_cookie"}
 drf-flex-fields = "^0.9.5"
