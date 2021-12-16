@@ -85,7 +85,7 @@ jobs:
           name: codecov-umbrella
           fail_ci_if_error: true
 
-      - uses: actions/upload-artifact@v2.2.4
+      - uses: actions/upload-artifact@v2.3.1
         with:
           name: pytest-results
           path: ./coverage.xml
