@@ -53,7 +53,7 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
 [package.extras]
-dev = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "zope.interface", "sphinx", "sphinx-rtd-theme", "pre-commit"]
+dev = ["coverage[toml] (>=5.0.2)", "hypothesis", "pre-commit", "pympler", "pytest (>=4.3.0)", "six", "sphinx", "sphinx-rtd-theme", "zope.interface"]
 docs = ["sphinx", "sphinx-rtd-theme", "zope.interface"]
 tests = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "zope.interface"]
 tests_no_zope = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six"]
@@ -175,11 +175,11 @@ cffi = ">=1.12"
 six = ">=1.4.1"
 
 [package.extras]
-docs = ["sphinx (>=1.6.5,!=1.8.0,!=3.1.0,!=3.1.1)", "sphinx-rtd-theme"]
-docstest = ["doc8", "pyenchant (>=1.6.11)", "twine (>=1.12.0)", "sphinxcontrib-spelling (>=4.0.1)"]
+docs = ["sphinx (>=1.6.5,!=1.8.0,!=3.1.0,!=3.1.1)", "sphinx_rtd_theme"]
+docstest = ["doc8", "pyenchant (>=1.6.11)", "sphinxcontrib-spelling (>=4.0.1)", "twine (>=1.12.0)"]
 pep8test = ["black", "flake8", "flake8-import-order", "pep8-naming"]
 ssh = ["bcrypt (>=3.1.5)"]
-test = ["pytest (>=3.6.0,!=3.9.0,!=3.9.1,!=3.9.2)", "pretend", "iso8601", "pytz", "hypothesis (>=1.11.4,!=3.79.2)"]
+test = ["hypothesis (>=1.11.4,!=3.79.2)", "iso8601", "pretend", "pytest (>=3.6.0,!=3.9.0,!=3.9.1,!=3.9.2)", "pytz"]
 
 [[package]]
 name = "distlib"
@@ -279,14 +279,15 @@ typing-extensions = "*"
 
 [[package]]
 name = "djangorestframework"
-version = "3.12.4"
+version = "3.14.0"
 description = "Web APIs for Django, made easy."
 category = "main"
 optional = false
-python-versions = ">=3.5"
+python-versions = ">=3.6"
 
 [package.dependencies]
-django = ">=2.2"
+django = ">=3.0"
+pytz = "*"
 
 [[package]]
 name = "djangorestframework-filters"
@@ -315,11 +316,11 @@ djangorestframework = "*"
 pyjwt = "*"
 
 [package.extras]
-test = ["cryptography", "pytest-cov", "pytest-django", "pytest-xdist", "pytest", "tox"]
-lint = ["flake8", "pep8", "isort"]
+dev = ["bumpversion (>=0.5.3,<1)", "ipython", "pytest-watch", "twine", "wheel"]
 doc = ["Sphinx (>=1.6.5,<2)", "sphinx_rtd_theme (>=0.1.9)"]
-dev = ["bumpversion (>=0.5.3,<1)", "pytest-watch", "wheel", "twine", "ipython"]
+lint = ["flake8", "isort", "pep8"]
 python-jose = ["python-jose (==3.0.0)"]
+test = ["cryptography", "pytest", "pytest-cov", "pytest-django", "pytest-xdist", "tox"]
 
 [package.source]
 type = "git"
@@ -382,8 +383,8 @@ python-versions = ">=3.5"
 Faker = ">=0.7.0"
 
 [package.extras]
-dev = ["coverage", "django", "flake8", "isort", "pillow", "sqlalchemy", "mongoengine", "wheel (>=0.32.0)", "tox", "zest.releaser"]
-doc = ["sphinx", "sphinx-rtd-theme"]
+dev = ["Django", "Pillow", "SQLAlchemy", "coverage", "flake8", "isort", "mongoengine", "tox", "wheel (>=0.32.0)", "zest.releaser[recommended]"]
+doc = ["Sphinx", "sphinx_rtd_theme"]
 
 [[package]]
 name = "faker"
@@ -474,9 +475,9 @@ optional = false
 python-versions = ">=3.6,<4.0"
 
 [package.extras]
-pipfile_deprecated_finder = ["pipreqs", "requirementslib"]
-requirements_deprecated_finder = ["pipreqs", "pip-api"]
 colors = ["colorama (>=0.4.3,<0.5.0)"]
+pipfile_deprecated_finder = ["pipreqs", "requirementslib"]
+requirements_deprecated_finder = ["pip-api", "pipreqs"]
 
 [[package]]
 name = "jinja2"
@@ -741,7 +742,7 @@ pytest = ">=4.6"
 toml = "*"
 
 [package.extras]
-testing = ["fields", "hunter", "process-tests", "six", "pytest-xdist", "virtualenv"]
+testing = ["fields", "hunter", "process-tests", "pytest-xdist", "six", "virtualenv"]
 
 [[package]]
 name = "pytest-django"
@@ -756,7 +757,7 @@ pytest = ">=5.4.0"
 
 [package.extras]
 docs = ["sphinx", "sphinx-rtd-theme"]
-testing = ["django", "django-configurations (>=2.0)"]
+testing = ["Django", "django-configurations (>=2.0)"]
 
 [[package]]
 name = "pytest-django-queries"
@@ -775,8 +776,8 @@ jinja2 = "*"
 pytest = ">=4.4.0"
 
 [package.extras]
-dev = ["beautifulsoup4", "lxml", "sphinx", "sphinx-rtd-theme", "pre-commit", "mock"]
-test = ["pytest-xdist", "tox-travis", "codecov", "coverage", "beautifulsoup4", "lxml", "sphinx", "sphinx-rtd-theme", "pre-commit", "mock"]
+dev = ["beautifulsoup4", "lxml", "mock", "pre-commit", "sphinx", "sphinx_rtd_theme"]
+test = ["beautifulsoup4", "codecov", "coverage", "lxml", "mock", "pre-commit", "pytest-xdist", "sphinx", "sphinx_rtd_theme", "tox-travis"]
 
 [[package]]
 name = "pytest-factoryboy"
@@ -838,7 +839,7 @@ python-versions = ">=3.6"
 pytest = ">=5.0"
 
 [package.extras]
-dev = ["pre-commit", "tox", "pytest-asyncio"]
+dev = ["pre-commit", "pytest-asyncio", "tox"]
 
 [[package]]
 name = "pytest-xdist"
@@ -918,7 +919,7 @@ idna = ">=2.5,<3"
 urllib3 = ">=1.21.1,<1.27"
 
 [package.extras]
-security = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)"]
+security = ["cryptography (>=1.3.4)", "pyOpenSSL (>=0.14)"]
 socks = ["PySocks (>=1.5.6,!=1.5.7)", "win-inet-pton"]
 
 [[package]]
@@ -981,7 +982,7 @@ virtualenv = ">=16.0.0,<20.0.0 || >20.0.0,<20.0.1 || >20.0.1,<20.0.2 || >20.0.2,
 
 [package.extras]
 docs = ["pygments-github-lexers (>=0.0.5)", "sphinx (>=2.0.0)", "sphinxcontrib-autoprogram (>=0.1.5)", "towncrier (>=18.5.0)"]
-testing = ["flaky (>=3.4.0)", "freezegun (>=0.3.11)", "psutil (>=5.6.1)", "pytest (>=4.0.0)", "pytest-cov (>=2.5.1)", "pytest-mock (>=1.10.0)", "pytest-randomly (>=1.0.0)", "pytest-xdist (>=1.22.2)", "pathlib2 (>=2.3.3)"]
+testing = ["flaky (>=3.4.0)", "freezegun (>=0.3.11)", "pathlib2 (>=2.3.3)", "psutil (>=5.6.1)", "pytest (>=4.0.0)", "pytest-cov (>=2.5.1)", "pytest-mock (>=1.10.0)", "pytest-randomly (>=1.0.0)", "pytest-xdist (>=1.22.2)"]
 
 [[package]]
 name = "typed-ast"
@@ -1009,7 +1010,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4"
 
 [package.extras]
 brotli = ["brotlipy (>=0.6.0)"]
-secure = ["certifi", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "pyOpenSSL (>=0.14)", "ipaddress"]
+secure = ["certifi", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "ipaddress", "pyOpenSSL (>=0.14)"]
 socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 
 [[package]]
@@ -1028,12 +1029,12 @@ six = ">=1.9.0,<2"
 
 [package.extras]
 docs = ["proselint (>=0.10.2)", "sphinx (>=3)", "sphinx-argparse (>=0.2.5)", "sphinx-rtd-theme (>=0.4.3)", "towncrier (>=19.9.0rc1)"]
-testing = ["coverage (>=5)", "coverage-enable-subprocess (>=1)", "flaky (>=3)", "pytest (>=4)", "pytest-env (>=0.6.2)", "pytest-freezegun (>=0.4.1)", "pytest-mock (>=2)", "pytest-randomly (>=1)", "pytest-timeout (>=1)", "pytest-xdist (>=1.31.0)", "packaging (>=20.0)", "xonsh (>=0.9.16)"]
+testing = ["coverage (>=5)", "coverage-enable-subprocess (>=1)", "flaky (>=3)", "packaging (>=20.0)", "pytest (>=4)", "pytest-env (>=0.6.2)", "pytest-freezegun (>=0.4.1)", "pytest-mock (>=2)", "pytest-randomly (>=1)", "pytest-timeout (>=1)", "pytest-xdist (>=1.31.0)", "xonsh (>=0.9.16)"]
 
 [metadata]
 lock-version = "1.1"
 python-versions = "3.8.*"
-content-hash = "23450a1bef7426fb9ad114b24ab21c0277ed70ebca154b6e41c4998323979fba"
+content-hash = "1695fe151bfb5aa41873426447c6a49467af88e42abd158c362f5364115afce2"
 
 [metadata.files]
 apipkg = [
@@ -1116,7 +1117,6 @@ click = [
 ]
 codecov = [
     {file = "codecov-2.1.12-py2.py3-none-any.whl", hash = "sha256:585dc217dc3d8185198ceb402f85d5cb5dbfa0c5f350a5abcdf9e347776a5b47"},
-    {file = "codecov-2.1.12-py3.8.egg", hash = "sha256:782a8e5352f22593cbc5427a35320b99490eb24d9dcfa2155fd99d2b75cfb635"},
     {file = "codecov-2.1.12.tar.gz", hash = "sha256:a0da46bb5025426da895af90938def8ee12d37fcbcbbbc15b6dc64cf7ebc51c1"},
 ]
 colorama = [
@@ -1207,8 +1207,8 @@ django-stubs = [
     {file = "django_stubs-1.5.0-py3-none-any.whl", hash = "sha256:4a03df70e062f4133085efc461148d0934f36ccfd60a2b6d7bc35821f62008b6"},
 ]
 djangorestframework = [
-    {file = "djangorestframework-3.12.4-py3-none-any.whl", hash = "sha256:6d1d59f623a5ad0509fe0d6bfe93cbdfe17b8116ebc8eda86d45f6e16e819aaf"},
-    {file = "djangorestframework-3.12.4.tar.gz", hash = "sha256:f747949a8ddac876e879190df194b925c177cdeb725a099db1460872f7c0a7f2"},
+    {file = "djangorestframework-3.14.0-py3-none-any.whl", hash = "sha256:eb63f58c9f218e1a7d064d17a70751f528ed4e1d35547fdade9aaf4cd103fd08"},
+    {file = "djangorestframework-3.14.0.tar.gz", hash = "sha256:579a333e6256b09489cbe0a067e66abe55c6595d8926be6b99423786334350c8"},
 ]
 djangorestframework-filters = [
     {file = "djangorestframework-filters-1.0.0.dev2.tar.gz", hash = "sha256:ef84527e3427434d54228825b53a35098c8633c1e77b71d06b79597b749ea3f2"},
