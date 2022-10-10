@@ -24,7 +24,7 @@ djangorestframework-filters = "1.0.0.dev2"
 
 [tool.poetry.dev-dependencies]
 # code formatter
-black = "^21.5b2"
+black = "^22.10"
 ptvsd = "^4.3.2"
 pytest-django = "^4.4.0"
 pytest-django-queries = "^1.2.0"
