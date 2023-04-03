@@ -14,7 +14,7 @@ openpyxl = "^3.0.10"
 django-redis = "^5.0.0"
 pyyaml = "^5.4"
 django-memoize = "^2.3.1"
-pymysql = {version = "^1.0.2", extras = ["rsa"]}
+pymysql = {version = "^1.0.3", extras = ["rsa"]}
 django-environ = "^0.4.5"
 django-phonenumber-field = {version = "^5.1.0", extras = ["phonenumbers"]}
 djangorestframework-simplejwt = {git = "https://github.com/ace-han/djangorestframework_simplejwt", rev = "main"}
